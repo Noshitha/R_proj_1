@@ -1,0 +1,46 @@
+Q1)All those people whose cell number is not known?
+Ans: B=subset(SBI.Bank.Data,SBI.Bank.Data$contact=='unknown')
+     View(B)
+
+Q2)All those people whose age is greater than or equal to 40?
+Ans: A=subset(SBI.Bank.Data,SBI.Bank.Data$age>=40)
+     View(A)
+
+Q3)Display thier job and balance amount??
+Ans: c=SBI.Bank.Data[,c(2,6)]
+     View(c)
+
+Q4)From previous output print only them whose bal >=10,000??
+Ans: d=subset(c,(c$balance>=10000))
+     View(d)
+
+Q5)Print only the people who are self employed?
+Ans: e=subset(SBI.Bank.Data,(grepl('self-employed',SBI.Bank.Data$job)))
+     View(e)
+
+Q6)print the count of balance even and odd?
+Ans:    f=SBI.Bank.Data$balance
+        sample=ifelse(f%%2==0,"even","odd")
+	count1=length(which(sample=="even"))
+	count2=length(which(sample=="odd"))
+	print(count1)
+	print(count2) 
+Q7)Taking the age from user and check if that age group exist or not?
+Ans:	g=SBI.Bank.Data$age[1:100]
+	x=as.integer(readline(prompt = "enter age:"))
+	if(x %in% g)
+	print("exist")
+	else
+	print("doesnt exist")
+
+Q8)Printing important data only of people born in AUG?
+Ans:	h=subset(SBI.Bank.Data,SBI.Bank.Data$month=='aug')
+	View(h[,c(1,2,3,6,8,10,11)])
+
+Q9)Printing all details of those who attended the campaign more than 5 times?
+Ans:	i=subset(SBI.Bank.Data,SBI.Bank.Data$campaign>=5)
+        View(i)
+
+Q10)Printing only first 10 rows and first 8 columns?
+Ans:	j=SBI.Bank.Data[c(1,2,3,4,5,6,7,8,9,10),c(1,2,3,4,5,6,7,8)]
+	View(j)
